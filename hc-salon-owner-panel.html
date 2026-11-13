@@ -453,7 +453,7 @@ applyTheme();
   var isIOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   var isAndroid=/Android/i.test(ua);
   var isStandalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
-  try{if(isStandalone||localStorage.getItem('hc_install_dismissed')==='1')return;}catch(e){if(isStandalone)return;}
+  if(isStandalone)return;
   if(isIOS){steps.textContent='على iPhone أو iPad: اضغط زر المشاركة ⬆️ أسفل Safari (أو أعلى الشاشة)، ثم اختر «إضافة إلى الشاشة الرئيسية» وبعدها اضغط «إضافة».';btn.textContent='عرض خطوات التثبيت';btn.onclick=function(){steps.hidden=false;};}
   else if(isAndroid){steps.textContent='لو لم تظهر نافذة التثبيت، افتح قائمة المتصفح ⋮ واختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».';btn.textContent='تثبيت التطبيق';btn.onclick=function(){if(deferred){deferred.prompt();deferred.userChoice.then(function(r){if(r&&r.outcome==='accepted')card.hidden=true;deferred=null;}).catch(function(){});}else{steps.hidden=false;}};}
   else {steps.textContent='افتح الموقع من متصفح الهاتف ثم اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية» من قائمة المتصفح.';btn.textContent='طريقة التثبيت';btn.onclick=function(){steps.hidden=false;};}
