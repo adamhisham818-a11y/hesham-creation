@@ -1,6 +1,7 @@
 {
-  "name": "Hesham Creation Beauty Salon",
-  "short_name": "Hesham Salon",
+"id": "./customer-app",
+"name": "Hesham Creation Customer",
+"short_name": "Customer",
   "description": "Hesham Creation Beauty Salon",
   "display": "standalone",
   "background_color": "#fff8f6",
